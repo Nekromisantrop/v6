@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fierro Martin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+    <link rel="stylesheet" href="styles.css"> <!-- Link para o CSS externo -->
+</head>
+<body>
+
+<header>
+    <h1>Fierro Martin</h1>
+    <nav>
+        <a href="#produtos">Produtos</a>
+        <a href="#blog">Blog</a>
+        <a href="#contato">Contato</a>
+    </nav>
+</header>
+
+<!-- Seção de Vídeo -->
+<section class="highlight">
+    <div class="video-container">
+        <video autoplay loop muted playsinline>
+            <source src="https://nekromisantrop.github.io/fierromartinv3/Videos/video.mp4" type="video/mp4">
+            Seu navegador não suporta vídeos.
+        </video>
+    </div>
+</section>
+
+<!-- Seção de Produtos em Destaque -->
+<section id="produtos">
+    <h2>Produtos em Destaque</h2>
+    <div class="produtos-container">
+        <div class="produto">
+            <img src="https://nekromisantrop.github.io/fierromartinv3/Imagens/produto1.jpg" alt="Churrasqueira Modelo 1">
+            <h3>Churrasqueira Modelo 1</h3>
+            <p>Churrasqueira resistente e moderna.</p>
+            <a href="#" class="cta-button">Comprar Agora</a>
+        </div>
+        <div class="produto">
+            <img src="https://nekromisantrop.github.io/fierromartinv3/Imagens/produto2.jpg" alt="Churrasqueira Modelo 2">
+            <h3>Churrasqueira Modelo 2</h3>
+            <p>Churrasqueira de alta performance.</p>
+            <a href="#" class="cta-button">Comprar Agora</a>
+        </div>
+        <div class="produto">
+            <img src="https://nekromisantrop.github.io/fierromartinv3/Imagens/produto3.jpg" alt="Churrasqueira Modelo 3">
+            <h3>Churrasqueira Modelo 3</h3>
+            <p>Churrasqueira com design inovador.</p>
+            <a href="#" class="cta-button">Comprar Agora</a>
+        </div>
+    </div>
+</section>
+
+<!-- Seção de Sustentabilidade -->
+<section id="sustentabilidade">
+    <h2>Compromisso com a Sustentabilidade</h2>
+    <p>Nós da Fierro Martin nos dedicamos a práticas sustentáveis em todos os aspectos da nossa produção. Utilizamos materiais recicláveis e adotamos métodos de fabricação que minimizam o impacto ambiental.</p>
+    <p>Estamos comprometidos em proteger o nosso planeta para as gerações futuras.</p>
+</section>
+
+<!-- Seção de Contato -->
+<section id="contato">
+    <h2>Entre em Contato</h2>
+    <form action="https://formspree.io/YOUR_EMAIL" method="POST">
+        <input type="text" name="name" placeholder="Seu Nome" required>
+        <input type="email" name="email" placeholder="Seu Email" required>
+        <textarea name="message" placeholder="Sua Mensagem" required></textarea>
+        <button type="submit">Enviar</button>
+    </form>
+</section>
+
+<!-- Rodapé -->
+<footer>
+    <p>&copy; 2024 Fierro Martin. Todos os direitos reservados.</p>
+</footer>
+
+<!-- Scripts do Slick Carousel -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+<script>
+    $(document).ready(function(){
+        function initializeCarousel() {
+            if ($(window).width() < 768) {
+                $('.produtos-container').slick({
+                    dots: true,
+                    infinite: false,
+                    speed: 500,
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    adaptiveHeight: true,
+                    centerMode: true,
+                    centerPadding: '60px',
+                    responsive: [
+                        {
+                            breakpoint: 768,
+                            settings: {
+                                slidesToShow: 1,
+                                slidesToScroll: 1,
+                                centerMode: true,
+                                centerPadding: '60px',
+                            }
+                        },
+                        {
+                            breakpoint: 1024,
+                            settings: {
+                                slidesToShow: 1,
+                                slidesToScroll: 1,
+                                centerMode: true,
+                                centerPadding: '40px',
+                            }
+                        }
+                    ]
+                });
+            } else {
+                if ($('.produtos-container').hasClass('slick-initialized')) {
+                    $('.produtos-container').slick('unslick');
+                }
+            }
+        }
+
+        initializeCarousel();
+        
+        $(window).resize(initializeCarousel);
+    });
+</script>
+
+</body>
+</html>
